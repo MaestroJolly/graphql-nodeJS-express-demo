@@ -3,8 +3,12 @@
 const app = require('express')();
 const { graphqlHTTP } = require('express-graphql');
 const { appConfig } = require('./config');
+const schema = require('./schema');
 
-app.use('/graphql', graphqlHTTP);
+app.use('/graphql', graphqlHTTP({
+    schema: schema,
+    graphiql: true
+}),);
 
 app.get('/', (req, res) => {
     res.json({
