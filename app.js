@@ -3,10 +3,11 @@
 const app = require('express')();
 const { graphqlHTTP } = require('express-graphql');
 const { appConfig } = require('./config');
-const schema = require('./schema');
+const helloworldSchema = require('./helloworld.schema');
+const blogPostSchema = require('./blogpost.schema');
 
 app.use('/graphql', graphqlHTTP({
-    schema: schema,
+    schema: blogPostSchema,
     graphiql: true
 }),);
 
